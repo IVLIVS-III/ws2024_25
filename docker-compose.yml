@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  code-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: code-server
+    ports:
+      - "0.0.0.0:8080:8080"
+    volumes:
+      - ${WORKDIR}/.local:/home/coder/.local
+      - ${WORKDIR}/.config:/home/coder/.config
+      - ${WORKDIR}/:/home/coder/project
+    user: "${UID}:${GID}"
+    environment:
+      - DOCKER_USER=${USER}
+    stdin_open: true
+    tty: true

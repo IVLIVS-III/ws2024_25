@@ -1,0 +1,1 @@
+Connect to `http://<host IP>:8080/?folder=/home/coder/project/ersti_event
